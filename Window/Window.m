@@ -2,6 +2,7 @@
 #import "AppDelegate.h"
 #import "View/View.h"
 #import "View/Button.h"
+#import "View/TextField.h"
 
 @implementation Window
 
@@ -46,9 +47,14 @@
 		[view addSubview:button];
 		
 		button1.title = @"Cancel";
-		button1.keyEquivalent = @"\r";
+		//button1.keyEquivalent = @"\r";
 		[view addSubview: button1];
 		
+        TextField *textField = [[TextField alloc] initWithFrame:NSMakeRect(10, 100, 200, 40)];
+        [delegate textFieldDelegate: textField];
+        //[textField setFrame: NSMakeRect(10, window.frame.size.height-40, 200, 40)];
+        
+        [view addSubview: textField];
 		//[window.contentView addSubview:pushButton];
 		//[window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 		//[view setFrameOrigin:NSMakePoint(20, 20)];

@@ -11,11 +11,13 @@
 @property (nonatomic, readwrite) NSWindow *window;
 @property (nonatomic, readwrite) NSView *view;
 @property (nonatomic, readwrite) NSButton *button;
+@property (nonatomic, readwrite) NSTextField *textField;
 @end
 
 @implementation AppDelegate
 
 - (void)windowWillClose:(NSNotification *)notification {
+    NSLog(@"Application closed!");
     exit(0);
 }
 
@@ -55,5 +57,9 @@
     _view = view;
 }
 
+- (void)textFieldDelegate:(NSTextField *)textField {
+    NSLog(@"------------");
+    _textField = textField;
+}
 
 @end

@@ -1,6 +1,6 @@
 #import <Cocoa/Cocoa.h>
 
-@interface TextField : NSTextField
-
+@interface TextField : NSTextField <NSTextFieldDelegate>
+ 
 @end
 
