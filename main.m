@@ -1,5 +1,5 @@
 //#import <Cocoa/Cocoa.h>
-#import "Window.h"
+#import "Window/Window.h"
 
 int main(int argc, const char* argv[]) {
    

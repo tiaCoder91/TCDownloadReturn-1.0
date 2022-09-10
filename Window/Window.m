@@ -1,7 +1,7 @@
 #import "Window.h"
 #import "AppDelegate.h"
-#import "View.h"
-#import "Button.h"
+#import "View/View.h"
+#import "View/Button.h"
 
 @implementation Window
 
@@ -9,6 +9,19 @@
 {
 	//[NSBundle loadNibNamed:@"myMain" owner:app];
 	// NSViewMinYMargin | NSViewWidthSizable |
+	
+	// ??????????????????????????????????????????????
+	/*
+	NSScreen *screen = [NSScreen mainScreen];
+	NSDictionary *description = [screen deviceDescription];
+	NSSize displayPixelSize = [[description objectForKey:NSDeviceSize] sizeValue];
+	CGSize displayPhysicalSize = CGDisplayScreenSize(
+		[[description objectForKey:@"NSScreenNumber"] unsignedIntValue]);
+	
+	NSLog(@"Screen width is %0.2f", displayPixelSize.width);
+	NSLog(@"Screen height is %0.2f", displayPixelSize.height);
+	*/
+	// ???????????????????????????????????????????????
 	
 	if (self = [super init]) {
 		NSRect frame = NSMakeRect(1400/2-500/2, 900/2-300/2, 500, 300);
@@ -23,6 +36,9 @@
 		[window setDelegate: delegate];
 		
 		View *view = [[View alloc] init];
+		[view setFrameSize: NSMakeSize(window.frame.size.width, window.frame.size.height)];
+		[delegate viewDelegate: view];
+		
 		Button *button = [[Button alloc] init];
 		Button *button1 = [[Button alloc] initWithRect:NSMakeRect(10, 20, 90, 40)];
 		
