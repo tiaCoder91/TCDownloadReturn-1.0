@@ -8,8 +8,9 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
-@property (nonatomic, readwrite) NSView *view;
 @property (nonatomic, readwrite) NSWindow *window;
+@property (nonatomic, readwrite) NSView *view;
+@property (nonatomic, readwrite) NSButton *button;
 @end
 
 @implementation AppDelegate
@@ -29,8 +30,12 @@
 
 - (void)windowDidResize:(NSNotification *)notification {
     NSWindow *window = notification.object;
-    NSSize mySize = NSMakeSize(window.frame.size.width+30, window.frame.size.height);
-    [_view setFrameSize: mySize];
+    
+    NSSize viewSize = NSMakeSize(window.frame.size.width+30, window.frame.size.height);
+    [_view setFrameSize: viewSize];
+    
+    NSPoint buttonOrigin = NSMakePoint(window.frame.size.width-90-10, 0+10);
+    [_button setFrameOrigin: buttonOrigin];
 }
 
 /*
@@ -41,6 +46,10 @@
     [_view setFrameSize: mySize];
 }
 */
+
+- (void)buttonDelegate:(NSButton *)button {
+    _button = button;
+}
 
 - (void)viewDelegate:(NSView *)view {
     _view = view;

@@ -39,8 +39,9 @@
 		[view setFrameSize: NSMakeSize(window.frame.size.width, window.frame.size.height)];
 		[delegate viewDelegate: view];
 		
-		Button *button = [[Button alloc] init];
-		Button *button1 = [[Button alloc] initWithRect:NSMakeRect(10, 20, 90, 40)];
+		Button *button = [[Button alloc] initWithRect: NSMakeRect(10, 10, 90, 40)];
+		Button *button1 = [[Button alloc] initWithRect: NSMakeRect(window.frame.size.width-90-10, 0+10, 90, 40)];
+		[delegate buttonDelegate: button1];
 		
 		[view addSubview:button];
 		

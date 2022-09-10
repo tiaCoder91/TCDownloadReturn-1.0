@@ -9,5 +9,6 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 - (void)viewDelegate:(NSView *)view;
+- (void)buttonDelegate:(NSButton *)button;
 @end
 
